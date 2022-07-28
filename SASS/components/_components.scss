@@ -1,0 +1,42 @@
+body::after{
+    content:"";
+    width:34vw;
+    height:87.5%;
+    background-color: green;
+    position:absolute;
+    left:-5.55%;
+    border-radius:0 0 17vw 17vw;
+}
+
+body::before{
+    content:"";
+    width:34vw;
+    height:87.5%;
+    background-color: red;
+    bottom:0px;
+    right:-11%;
+    position:absolute;
+    border-radius:17vw 17vw 0 0;
+    opacity:0.03;
+}
+
+#presentation
+{
+    width:31.55%;
+    position:absolute;
+    right:18%;
+    top:37.5%;
+   
+    z-index:2;
+    h1{
+        margin-bottom:4.375%;
+        color:$mainHeading;
+    }
+    p{
+        margin-left:2px; 
+        font-size:0.84375rem;
+        color:$paragraph;
+
+    }
+    
+}
