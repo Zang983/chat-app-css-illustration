@@ -1,42 +1,242 @@
-body::after{
+body::after, body::before{
     content:"";
-    width:34vw;
+    min-width:500px;
+    width:34vw; 
     height:87.5%;
-    background-color: green;
+    background: linear-gradient(var(--first-color), var(--second-color));
     position:absolute;
-    left:-5.55%;
-    border-radius:0 0 17vw 17vw;
+    z-index:-1;
+
+}
+body::after {
+    left: -5.55%;
+    border-radius: 0vw 0vw 17vw 17vw;
+    @include breakPointMobile{
+        border-radius: 0 0 250px 250px; 
+        left:-310px;
+        top:-200px;
+    }
 }
 
-body::before{
-    content:"";
-    width:34vw;
-    height:87.5%;
-    background-color: red;
-    bottom:0px;
-    right:-11%;
-    position:absolute;
-    border-radius:17vw 17vw 0 0;
-    opacity:0.03;
+body::before {
+    bottom: 0px;
+    right: -11%;
+    opacity: 0.03;
+    border-radius: 17vw 17vw 0 0;
+    @include breakPointMobile{
+        border-radius: 250px 250px 0 0; 
+        bottom:-200px;
+        left:auto; 
+        right:-310px;
+    }
 }
 
-#presentation
-{
-    width:31.55%;
-    position:absolute;
-    right:18%;
-    top:37.5%;
-   
-    z-index:2;
-    h1{
-        margin-bottom:4.375%;
-        color:$mainHeading;
+#presentation {
+    width: 31.25%;
+    position: absolute;
+    right: 18%;
+    top: 37.5%;
+    z-index: 2;
+    h1 {
+        margin-bottom: 4.375%;
+        color: $mainHeading;
+        font-size: 30px;
     }
-    p{
-        margin-left:2px; 
-        font-size:0.84375rem;
-        color:$paragraph;
+    p {
+        margin-left: 2px;
+        font-size: 1rem;
+        color: $paragraph;
+    }
+    @include breakPointMobile{
+        top:auto;
+        width:81.3334%;
+        left:9.33333%;
+        bottom:70px;
+        text-align:center;
+        line-height: 1.75rem;
+        h1{
+            font-size:38px;
+            font-weight:500;
+        }
+    }
+}
+
+#telephone {
+    background-color: white;
+    width: 17.361111vw;
+    height: 34.722222vw;
+    min-width: 250px;
+    min-height: 500px;
+    position: absolute;
+    top: 50%;
+    left: calc(34vw - 5.5%);
+    padding: 10px;
+    transform: translate(-24%,-50%);
+    border-radius: 30px;
+    box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.137);
+    #encoche {
+        background-color: white;
+        border-radius: 0 0 30px 30px;
+        width: 52%;
+        height: 4%;
+        position: absolute;
+        top: 10px;
+        left: 50%;
+        transform: translate(-50%);
+    }
+
+    #screen {
+        background-color: $backgroundTelephone;
+        width: 100%;
+        height: 100%;
+        border-radius: 30px;
+
+        #screenHeader {
+            color: $white;
+            @include flexCenter;
+            justify-content: space-between;
+            border-radius: 30px 30px 5px 5px;
+            width: 100%;
+            height: 13.402%;
+            font-size: 0.625rem;
+            background: linear-gradient(90deg, var(--second-color), var(--first-color));
+            padding: 0px 6.6666%;
+
+            .leftMenu {
+                margin-top: 15px;
+                @include flexCenter;
+                .avatar {
+                    width: 1.74vw;
+                    min-width: 25px;
+                    margin: 0 3.111%;
+                    border-radius: 100%;
+                    border: 1px solid white;
+                }
+                #name {
+                    display: flex;
+                    flex-wrap: wrap;
+                    h3{
+                        font-weight:500;
+                    }
+                    p {
+                        color: $pale-violet
+                    }
+                }
+            }
+            .fa-ellipsis-vertical {
+                margin-top: 15px;
+                color: $pale-violet
+            }
+        }
+    }
+    @include breakPointMobile{
+        left:50%;
+        top:8.547vh;
+        transform:translateX(-50%)
+    }
+}
+
+#messages {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+
+    .message {
+        display: flex;
+        align-items: center;
+        max-width: calc(55.90% + 10px);
+        font-size: 0.5rem;
+        margin: 0.23rem 0;
+        padding: 8px;
+        border-radius: 10px 10px 10px 3px;
+
+        &:nth-child(2),
+        &:nth-child(5) {
+            margin-bottom: 16px;
+        }
+
+        &--recipient {
+            background-color: #EFE4F5;
+            color: $left-chat;
+
+        }
+
+        &--owner {
+            background-color: $white;
+            color: $right-chat;
+            justify-self: flex-end;
+            align-self: flex-end;
+            border-radius: 10px 10px 3px 10px;
+        }
+
+        &--pictures {
+            background-color: inherit;
+            max-width: fit-content;
+            padding: 0px;
+
+            img {
+                border-radius: 10px;
+                min-height: 40px;
+                min-width: 40px;
+                width: 2.778vw;
+                height: 2.778vw;
+                margin-left: 8px;
+            }
+        }
+
+        &--recipient--proposition {
+            background: linear-gradient(90deg, var(--first-color), var(--second-color));
+            color: $white;
+            font-size: 0.45rem;
+            min-width: 160px;
+
+            span {
+                font-size: 0.8rem;
+                flex: 1;
+                text-align: right;
+                font-size: bold;
+                margin-right: 18px;
+            }
+        }
+
+
+        input[type="radio"] {
+            margin-right: 8px;
+            color: white;
+        }
 
     }
-    
+
+    #newMessage {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        i {
+            @include flexCenter;
+            justify-content: center;
+            background-color: $mainHeading;
+            color: $white;
+            border-radius: 50%;
+            margin-top: 8px;
+            width: 1.74vw;
+            height: 1.74vw;
+            min-height: 25px;
+            min-width: 25px;
+            position: absolute;
+            right: 5%;
+            font-size: 11px;
+        }
+
+        input[type=text] {
+            height: 35px;
+            width: 100%;
+            border-radius: 50px;
+            padding-left: 10px;
+            border: none;
+            outline: none;
+            margin-top: 8px;
+        }
+    }
 }

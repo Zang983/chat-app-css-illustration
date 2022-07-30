@@ -1,8 +1,17 @@
 @import url("https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap");
+:root {
+  --first-color:#e942ff;
+  --second-color:#8838ff;
+}
+
 * {
   margin: 0px;
   padding: 0px;
   box-sizing: border-box;
+}
+
+html {
+  overflow: hidden;
 }
 
 body {
@@ -12,41 +21,48 @@ body {
   width: 100vw;
   overflow: hidden;
   display: flex;
+  background-color: #FAFAFA;
 }
 
-.attribution {
-  font-size: 11px;
-  text-align: center;
-}
-
-.attribution a {
-  color: hsl(228deg, 45%, 44%);
+body::after, body::before {
+  content: "";
+  min-width: 500px;
+  width: 34vw;
+  height: 87.5%;
+  background: linear-gradient(var(--first-color), var(--second-color));
+  position: absolute;
+  z-index: -1;
 }
 
 body::after {
-  content: "";
-  width: 34vw;
-  height: 87.5%;
-  background-color: green;
-  position: absolute;
   left: -5.55%;
-  border-radius: 0 0 17vw 17vw;
+  border-radius: 0vw 0vw 17vw 17vw;
+}
+@media screen and (max-width: 768px) {
+  body::after {
+    border-radius: 0 0 250px 250px;
+    left: -310px;
+    top: -200px;
+  }
 }
 
 body::before {
-  content: "";
-  width: 34vw;
-  height: 87.5%;
-  background-color: red;
   bottom: 0px;
   right: -11%;
-  position: absolute;
-  border-radius: 17vw 17vw 0 0;
   opacity: 0.03;
+  border-radius: 17vw 17vw 0 0;
+}
+@media screen and (max-width: 768px) {
+  body::before {
+    border-radius: 250px 250px 0 0;
+    bottom: -200px;
+    left: auto;
+    right: -310px;
+  }
 }
 
 #presentation {
-  width: 31.55%;
+  width: 31.25%;
   position: absolute;
   right: 18%;
   top: 37.5%;
@@ -55,9 +71,192 @@ body::before {
 #presentation h1 {
   margin-bottom: 4.375%;
   color: hsl(271deg, 36%, 24%);
+  font-size: 30px;
 }
 #presentation p {
   margin-left: 2px;
-  font-size: 0.84375rem;
+  font-size: 1rem;
   color: hsl(220deg, 7%, 64%);
+}
+@media screen and (max-width: 768px) {
+  #presentation {
+    top: auto;
+    width: 81.3334%;
+    left: 9.33333%;
+    bottom: 70px;
+    text-align: center;
+    line-height: 1.75rem;
+  }
+  #presentation h1 {
+    font-size: 38px;
+    font-weight: 500;
+  }
+}
+
+#telephone {
+  background-color: white;
+  width: 17.361111vw;
+  height: 34.722222vw;
+  min-width: 250px;
+  min-height: 500px;
+  position: absolute;
+  top: 50%;
+  left: calc(34vw - 5.5%);
+  padding: 10px;
+  transform: translate(-24%, -50%);
+  border-radius: 30px;
+  box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.137);
+}
+#telephone #encoche {
+  background-color: white;
+  border-radius: 0 0 30px 30px;
+  width: 52%;
+  height: 4%;
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translate(-50%);
+}
+#telephone #screen {
+  background-color: hsl(270deg, 20%, 96%);
+  width: 100%;
+  height: 100%;
+  border-radius: 30px;
+}
+#telephone #screen #screenHeader {
+  color: hsl(0deg, 0%, 100%);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 30px 30px 5px 5px;
+  width: 100%;
+  height: 13.402%;
+  font-size: 0.625rem;
+  background: linear-gradient(90deg, var(--second-color), var(--first-color));
+  padding: 0px 6.6666%;
+}
+#telephone #screen #screenHeader .leftMenu {
+  margin-top: 15px;
+  display: flex;
+  align-items: center;
+}
+#telephone #screen #screenHeader .leftMenu .avatar {
+  width: 1.74vw;
+  min-width: 25px;
+  margin: 0 3.111%;
+  border-radius: 100%;
+  border: 1px solid white;
+}
+#telephone #screen #screenHeader .leftMenu #name {
+  display: flex;
+  flex-wrap: wrap;
+}
+#telephone #screen #screenHeader .leftMenu #name h3 {
+  font-weight: 500;
+}
+#telephone #screen #screenHeader .leftMenu #name p {
+  color: hsl(276deg, 100%, 81%);
+}
+#telephone #screen #screenHeader .fa-ellipsis-vertical {
+  margin-top: 15px;
+  color: hsl(276deg, 100%, 81%);
+}
+@media screen and (max-width: 768px) {
+  #telephone {
+    left: 50%;
+    top: 8.547vh;
+    transform: translateX(-50%);
+  }
+}
+
+#messages {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+#messages .message {
+  display: flex;
+  align-items: center;
+  max-width: calc(55.9% + 10px);
+  font-size: 0.5rem;
+  margin: 0.23rem 0;
+  padding: 8px;
+  border-radius: 10px 10px 10px 3px;
+}
+#messages .message:nth-child(2), #messages .message:nth-child(5) {
+  margin-bottom: 16px;
+}
+#messages .message--recipient {
+  background-color: #EFE4F5;
+  color: hsl(276deg, 55%, 52%);
+}
+#messages .message--owner {
+  background-color: hsl(0deg, 0%, 100%);
+  color: hsl(271deg, 15%, 43%);
+  justify-self: flex-end;
+  align-self: flex-end;
+  border-radius: 10px 10px 3px 10px;
+}
+#messages .message--pictures {
+  background-color: inherit;
+  max-width: -webkit-fit-content;
+  max-width: -moz-fit-content;
+  max-width: fit-content;
+  padding: 0px;
+}
+#messages .message--pictures img {
+  border-radius: 10px;
+  min-height: 40px;
+  min-width: 40px;
+  width: 2.778vw;
+  height: 2.778vw;
+  margin-left: 8px;
+}
+#messages .message--recipient--proposition {
+  background: linear-gradient(90deg, var(--first-color), var(--second-color));
+  color: hsl(0deg, 0%, 100%);
+  font-size: 0.45rem;
+  min-width: 160px;
+}
+#messages .message--recipient--proposition span {
+  font-size: 0.8rem;
+  flex: 1;
+  text-align: right;
+  font-size: bold;
+  margin-right: 18px;
+}
+#messages .message input[type=radio] {
+  margin-right: 8px;
+  color: white;
+}
+#messages #newMessage {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#messages #newMessage i {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: hsl(271deg, 36%, 24%);
+  color: hsl(0deg, 0%, 100%);
+  border-radius: 50%;
+  margin-top: 8px;
+  width: 1.74vw;
+  height: 1.74vw;
+  min-height: 25px;
+  min-width: 25px;
+  position: absolute;
+  right: 5%;
+  font-size: 11px;
+}
+#messages #newMessage input[type=text] {
+  height: 35px;
+  width: 100%;
+  border-radius: 50px;
+  padding-left: 10px;
+  border: none;
+  outline: none;
+  margin-top: 8px;
 }

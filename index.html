@@ -7,6 +7,9 @@
   <!-- displays site properly based on user's device -->
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
   <link rel="stylesheet" href="./public/css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+    integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
   <title>Frontend Mentor | [Challenge Name Here]</title>
 
   <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
@@ -14,10 +17,7 @@
 
   </style>
 </head>
-
 <body>
-
-
   <main>
 
     <div id="presentation">
@@ -27,43 +27,49 @@
         your walker and book again all through the chat.</p>
     </div>
 
+    <div id="telephone">
+      <div id="screen">
+        <div id="encoche"></div>
+        <div id="screenHeader">
+          <div class="leftMenu">
+            <i class="fa-solid fa-chevron-left"></i>
+            <img src="./images/avatar.jpg" alt="Samuel's picture" class="avatar">
+            <div id="name">
+              <h3>Samuel Green</h3>
+              <p>Available to Walk</p>
+            </div>
+          </div>
+          <i class="fa-solid fa-ellipsis-vertical"></i>
+        </div>
+        <div id="messages">
+          <p class="message message--recipient">That sounds great, I'd be happy with that.</p>
+          <p class="message message--recipient">Could you send over some pictures of your dog, please ?</p>
+          <p class="message message--owner message--pictures">
+            <img src="./images/dog-image-1.jpg" alt="dog picture">
+            <img src="./images/dog-image-2.jpg" alt="dog picture">
+            <img src="./images/dog-image-3.jpg" alt="dog picture">
+          </p>
+          <p class="message message--owner">Here are a few pictures. She's a happy girl!</p>
+          <p class="message message--owner">Can you make it?</p>
+          <p class="message message--recipient">She looks so happy! The time we discussed works. How long shall I take
+            her out for?</p>
+          <p class="message message--recipient message--recipient--proposition">
+            <label for="option1"></label>
+            <input type="radio" id="option1"> 30 minute walk
+            <span> $29</span>
+          </p>
+          <p class="message message--recipient message--recipient--proposition">
+            <label for="option2"></label>
+            <input type="radio" id="option2"> 1 hour walk
+            <span> $49</span>
+          </p>
+          <div id="newMessage"><input type="text"  placeholder="Type a message..."><i
+              class="fa-solid fa-chevron-right"></i>
+          </div>
+        </div>
+      </div>
+    </div>
   </main>
-
-  <!-- <i class="fa-solid fa-chevron-right"></i>
-  <i class="fa-solid fa-chevron-left"></i>
-  <i class="fa-solid fa-ellipsis-vertical"></i>
-
-<main>
-
-
-  Samuel Green
-  Available to Walk
-
-  That sounds great. I’d be happy with that.
-
-  Could you send over some pictures of your dog, please?
-
-  Here are a few pictures. She’s a happy girl!
-
-  Can you make it?
-
-  She looks so happy! The time we discussed works. How long shall I take her out for?
-
-  30 minute walk
-  $29
-
-  1 hour walk
-  $49
-
-  Type a message…
-
-  Simple booking
-
-</main>
-
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
-    Coded by <a href="#">Your Name Here</a>. -->
   </div>
 </body>
 

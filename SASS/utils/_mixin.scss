@@ -1,0 +1,10 @@
+@mixin flexCenter {
+    display: flex;
+    align-items: center;
+}
+
+@mixin breakPointMobile {
+    @media screen and (max-width:768px) {
+        @content;
+    }
+}
